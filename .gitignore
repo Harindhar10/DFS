@@ -2,3 +2,6 @@ codex
 node_modules/
 package.json
 package-lock.json
+aizynthfinder
+batch_output
+DeepRetro
