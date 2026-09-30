@@ -1,0 +1,548 @@
+2026-09-30 21:25:10,631 [INFO] Starting DeepChem dataset splitting...
+2026-09-30 21:25:10,631 [INFO] Processing dataset: bace_classification
+2026-09-30 21:25:10,637 [INFO] About to featurize bace_c dataset.
+2026-09-30 21:25:14,065 [INFO] Loading raw samples now.
+2026-09-30 21:25:14,065 [INFO] shard_size: 8192
+2026-09-30 21:25:14,066 [INFO] About to start loading CSV from /var/folders/rr/24f28zy54p19m85qmq5k28jr0000gn/T/bace.csv
+2026-09-30 21:25:14,167 [INFO] Loading shard 1 of size 8192.
+2026-09-30 21:25:14,170 [INFO] About to featurize shard.
+2026-09-30 21:25:14,173 [INFO] TIMING: featurizing shard 0 took 0.003 s
+2026-09-30 21:25:14,185 [INFO] TIMING: dataset construction took 0.120 s
+2026-09-30 21:25:14,185 [INFO] Loading dataset from disk.
+2026-09-30 21:25:14,187 [INFO] About to split dataset with ScaffoldSplitter splitter.
+2026-09-30 21:25:14,187 [INFO] Computing train/valid/test indices
+2026-09-30 21:25:14,188 [INFO] About to generate scaffolds
+2026-09-30 21:25:14,188 [INFO] Generating scaffold 0/1513
+2026-09-30 21:25:14,478 [INFO] Generating scaffold 1000/1513
+2026-09-30 21:25:14,610 [INFO] About to sort in scaffold sets
+2026-09-30 21:25:14,613 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:14,613 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:14,621 [INFO] TIMING: dataset construction took 0.008 s
+2026-09-30 21:25:14,621 [INFO] Loading dataset from disk.
+2026-09-30 21:25:14,622 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:14,622 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:14,624 [INFO] TIMING: dataset construction took 0.002 s
+2026-09-30 21:25:14,624 [INFO] Loading dataset from disk.
+2026-09-30 21:25:14,625 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:14,625 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:14,626 [INFO] TIMING: dataset construction took 0.001 s
+2026-09-30 21:25:14,626 [INFO] Loading dataset from disk.
+2026-09-30 21:25:14,627 [INFO] About to transform data.
+2026-09-30 21:25:14,630 [INFO] bace_classification train: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:14,636 [INFO] Saved train split to datasets/bace_classification/train.csv
+2026-09-30 21:25:14,637 [INFO] bace_classification valid: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:14,638 [INFO] Saved valid split to datasets/bace_classification/valid.csv
+2026-09-30 21:25:14,639 [INFO] bace_classification test: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:14,640 [INFO] Saved test split to datasets/bace_classification/test.csv
+2026-09-30 21:25:14,640 [INFO] Processing dataset: clintox
+2026-09-30 21:25:14,640 [INFO] About to featurize clintox dataset.
+2026-09-30 21:25:15,513 [INFO] Loading raw samples now.
+2026-09-30 21:25:15,514 [INFO] shard_size: 8192
+2026-09-30 21:25:15,515 [INFO] About to start loading CSV from /var/folders/rr/24f28zy54p19m85qmq5k28jr0000gn/T/clintox.csv.gz
+2026-09-30 21:25:15,519 [INFO] Loading shard 1 of size 8192.
+2026-09-30 21:25:15,520 [INFO] About to featurize shard.
+2026-09-30 21:25:15,524 [INFO] TIMING: featurizing shard 0 took 0.004 s
+2026-09-30 21:25:15,575 [INFO] TIMING: dataset construction took 0.060 s
+2026-09-30 21:25:15,576 [INFO] Loading dataset from disk.
+2026-09-30 21:25:15,587 [INFO] About to split dataset with ScaffoldSplitter splitter.
+2026-09-30 21:25:15,587 [INFO] Computing train/valid/test indices
+2026-09-30 21:25:15,588 [INFO] About to generate scaffolds
+2026-09-30 21:25:15,591 [INFO] Generating scaffold 0/1484
+2026-09-30 21:25:15,619 [INFO] Not generating scaffold for smiles [NH4][Pt]([NH4])(Cl)Cl - invalid smiles string
+2026-09-30 21:25:15,714 [INFO] Not generating scaffold for smiles c1ccc(cc1)n2c(=O)c(c(=O)n2c3ccccc3)CCS(=O)c4ccccc4 - invalid smiles string
+2026-09-30 21:25:15,998 [INFO] Generating scaffold 1000/1484
+2026-09-30 21:25:16,058 [INFO] Not generating scaffold for smiles CCCCc1c(=O)n(n(c1=O)c2ccc(cc2)O)c3ccccc3 - invalid smiles string
+2026-09-30 21:25:16,059 [INFO] Not generating scaffold for smiles CCCCc1c(=O)n(n(c1=O)c2ccccc2)c3ccccc3 - invalid smiles string
+2026-09-30 21:25:16,121 [INFO] About to sort in scaffold sets
+2026-09-30 21:25:16,123 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:16,123 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:16,135 [INFO] TIMING: dataset construction took 0.012 s
+2026-09-30 21:25:16,135 [INFO] Loading dataset from disk.
+2026-09-30 21:25:16,136 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:16,136 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:16,138 [INFO] TIMING: dataset construction took 0.002 s
+2026-09-30 21:25:16,138 [INFO] Loading dataset from disk.
+2026-09-30 21:25:16,139 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:16,139 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:16,141 [INFO] TIMING: dataset construction took 0.002 s
+2026-09-30 21:25:16,141 [INFO] Loading dataset from disk.
+2026-09-30 21:25:16,142 [INFO] About to transform data.
+2026-09-30 21:25:16,144 [INFO] clintox train: removed 24 rows (SMILES > 200)
+2026-09-30 21:25:16,151 [INFO] Saved train split to datasets/clintox/train.csv
+2026-09-30 21:25:16,152 [INFO] clintox valid: removed 6 rows (SMILES > 200)
+2026-09-30 21:25:16,153 [INFO] Saved valid split to datasets/clintox/valid.csv
+2026-09-30 21:25:16,154 [INFO] clintox test: removed 2 rows (SMILES > 200)
+2026-09-30 21:25:16,155 [INFO] Saved test split to datasets/clintox/test.csv
+2026-09-30 21:25:16,155 [INFO] Processing dataset: sider
+2026-09-30 21:25:16,155 [INFO] About to featurize sider dataset.
+2026-09-30 21:25:17,167 [INFO] Loading raw samples now.
+2026-09-30 21:25:17,167 [INFO] shard_size: 8192
+2026-09-30 21:25:17,168 [INFO] About to start loading CSV from /var/folders/rr/24f28zy54p19m85qmq5k28jr0000gn/T/sider.csv.gz
+2026-09-30 21:25:17,179 [INFO] Loading shard 1 of size 8192.
+2026-09-30 21:25:17,180 [INFO] About to featurize shard.
+2026-09-30 21:25:17,186 [INFO] TIMING: featurizing shard 0 took 0.006 s
+2026-09-30 21:25:17,228 [INFO] TIMING: dataset construction took 0.060 s
+2026-09-30 21:25:17,228 [INFO] Loading dataset from disk.
+2026-09-30 21:25:17,230 [INFO] About to split dataset with ScaffoldSplitter splitter.
+2026-09-30 21:25:17,230 [INFO] Computing train/valid/test indices
+2026-09-30 21:25:17,230 [INFO] About to generate scaffolds
+2026-09-30 21:25:17,231 [INFO] Generating scaffold 0/1427
+2026-09-30 21:25:18,734 [INFO] Generating scaffold 1000/1427
+2026-09-30 21:25:19,317 [INFO] About to sort in scaffold sets
+2026-09-30 21:25:19,319 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:19,319 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:19,357 [INFO] TIMING: dataset construction took 0.038 s
+2026-09-30 21:25:19,358 [INFO] Loading dataset from disk.
+2026-09-30 21:25:19,361 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:19,361 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:19,366 [INFO] TIMING: dataset construction took 0.005 s
+2026-09-30 21:25:19,366 [INFO] Loading dataset from disk.
+2026-09-30 21:25:19,367 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:19,367 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:19,372 [INFO] TIMING: dataset construction took 0.005 s
+2026-09-30 21:25:19,372 [INFO] Loading dataset from disk.
+2026-09-30 21:25:19,374 [INFO] About to transform data.
+2026-09-30 21:25:19,380 [INFO] sider train: removed 35 rows (SMILES > 200)
+2026-09-30 21:25:19,397 [INFO] Saved train split to datasets/sider/train.csv
+2026-09-30 21:25:19,398 [INFO] sider valid: removed 10 rows (SMILES > 200)
+2026-09-30 21:25:19,401 [INFO] Saved valid split to datasets/sider/valid.csv
+2026-09-30 21:25:19,402 [INFO] sider test: removed 16 rows (SMILES > 200)
+2026-09-30 21:25:19,404 [INFO] Saved test split to datasets/sider/test.csv
+2026-09-30 21:25:19,404 [INFO] Processing dataset: hiv
+2026-09-30 21:25:19,406 [INFO] About to featurize hiv dataset.
+2026-09-30 21:25:22,907 [INFO] Loading raw samples now.
+2026-09-30 21:25:22,908 [INFO] shard_size: 8192
+2026-09-30 21:25:22,909 [INFO] About to start loading CSV from /var/folders/rr/24f28zy54p19m85qmq5k28jr0000gn/T/HIV.csv
+2026-09-30 21:25:22,924 [INFO] Loading shard 1 of size 8192.
+2026-09-30 21:25:22,926 [INFO] About to featurize shard.
+2026-09-30 21:25:22,990 [INFO] TIMING: featurizing shard 0 took 0.064 s
+2026-09-30 21:25:23,041 [INFO] Loading shard 2 of size 8192.
+2026-09-30 21:25:23,042 [INFO] About to featurize shard.
+2026-09-30 21:25:23,048 [INFO] TIMING: featurizing shard 1 took 0.006 s
+2026-09-30 21:25:23,110 [INFO] Loading shard 3 of size 8192.
+2026-09-30 21:25:23,112 [INFO] About to featurize shard.
+2026-09-30 21:25:23,117 [INFO] TIMING: featurizing shard 2 took 0.005 s
+2026-09-30 21:25:23,153 [INFO] Loading shard 4 of size 8192.
+2026-09-30 21:25:23,154 [INFO] About to featurize shard.
+2026-09-30 21:25:23,159 [INFO] TIMING: featurizing shard 3 took 0.005 s
+2026-09-30 21:25:23,237 [INFO] Loading shard 5 of size 8192.
+2026-09-30 21:25:23,238 [INFO] About to featurize shard.
+2026-09-30 21:25:23,244 [INFO] TIMING: featurizing shard 4 took 0.006 s
+2026-09-30 21:25:23,344 [INFO] Loading shard 6 of size 8192.
+2026-09-30 21:25:23,344 [INFO] About to featurize shard.
+2026-09-30 21:25:23,344 [INFO] TIMING: featurizing shard 5 took 0.000 s
+2026-09-30 21:25:23,348 [INFO] TIMING: dataset construction took 0.439 s
+2026-09-30 21:25:23,348 [INFO] Loading dataset from disk.
+2026-09-30 21:25:23,351 [INFO] About to split dataset with ScaffoldSplitter splitter.
+2026-09-30 21:25:23,351 [INFO] Computing train/valid/test indices
+2026-09-30 21:25:23,355 [INFO] About to generate scaffolds
+2026-09-30 21:25:23,361 [INFO] Generating scaffold 0/41127
+2026-09-30 21:25:23,383 [INFO] Not generating scaffold for smiles O=C1O[Al]23(OC1=O)(OC(=O)C(=O)O2)OC(=O)C(=O)O3 - invalid smiles string
+2026-09-30 21:25:23,587 [INFO] Not generating scaffold for smiles Cc1ccc([B-2]2(c3ccc(C)cc3)=NCCO2)cc1 - invalid smiles string
+2026-09-30 21:25:23,589 [INFO] Generating scaffold 1000/41127
+2026-09-30 21:25:23,846 [INFO] Generating scaffold 2000/41127
+2026-09-30 21:25:24,038 [INFO] Generating scaffold 3000/41127
+2026-09-30 21:25:24,217 [INFO] Generating scaffold 4000/41127
+2026-09-30 21:25:24,404 [INFO] Generating scaffold 5000/41127
+2026-09-30 21:25:24,608 [INFO] Generating scaffold 6000/41127
+2026-09-30 21:25:24,810 [INFO] Generating scaffold 7000/41127
+2026-09-30 21:25:25,016 [INFO] Generating scaffold 8000/41127
+2026-09-30 21:25:25,211 [INFO] Generating scaffold 9000/41127
+2026-09-30 21:25:25,410 [INFO] Generating scaffold 10000/41127
+2026-09-30 21:25:25,608 [INFO] Generating scaffold 11000/41127
+2026-09-30 21:25:25,793 [INFO] Generating scaffold 12000/41127
+2026-09-30 21:25:25,967 [INFO] Not generating scaffold for smiles Oc1ccc(C2Oc3cc(O)cc4c3C(=[O+][AlH3-3]35([O+]=C6c7c(cc(O)cc7[OH+]3)OC(c3ccc(O)cc3O)C6O)([O+]=C3c6c(cc(O)cc6[OH+]5)OC(c5ccc(O)cc5O)C3O)[OH+]4)C2O)c(O)c1 - invalid smiles string
+2026-09-30 21:25:25,987 [INFO] Generating scaffold 13000/41127
+2026-09-30 21:25:26,187 [INFO] Generating scaffold 14000/41127
+2026-09-30 21:25:26,389 [INFO] Generating scaffold 15000/41127
+2026-09-30 21:25:26,623 [INFO] Generating scaffold 16000/41127
+2026-09-30 21:25:26,832 [INFO] Generating scaffold 17000/41127
+2026-09-30 21:25:27,004 [INFO] Generating scaffold 18000/41127
+2026-09-30 21:25:27,062 [INFO] Not generating scaffold for smiles CC1=C2[OH+][AlH3-3]34([O+]=C2C=CN1C)([O+]=C1C=CN(C)C(C)=C1[OH+]3)[O+]=C1C=CN(C)C(C)=C1[OH+]4 - invalid smiles string
+2026-09-30 21:25:27,226 [INFO] Generating scaffold 19000/41127
+2026-09-30 21:25:27,535 [INFO] Generating scaffold 20000/41127
+2026-09-30 21:25:27,754 [INFO] Generating scaffold 21000/41127
+2026-09-30 21:25:27,978 [INFO] Generating scaffold 22000/41127
+2026-09-30 21:25:28,191 [INFO] Generating scaffold 23000/41127
+2026-09-30 21:25:28,410 [INFO] Generating scaffold 24000/41127
+2026-09-30 21:25:28,608 [INFO] Generating scaffold 25000/41127
+2026-09-30 21:25:28,795 [INFO] Generating scaffold 26000/41127
+2026-09-30 21:25:29,012 [INFO] Generating scaffold 27000/41127
+2026-09-30 21:25:29,191 [INFO] Generating scaffold 28000/41127
+2026-09-30 21:25:29,404 [INFO] Generating scaffold 29000/41127
+2026-09-30 21:25:29,663 [INFO] Generating scaffold 30000/41127
+2026-09-30 21:25:29,829 [INFO] Not generating scaffold for smiles CC(c1cccs1)=[N+]1[N-]C(N)=[S+][AlH3-]12[OH+]B(c1ccccc1)[OH+]2 - invalid smiles string
+2026-09-30 21:25:29,830 [INFO] Not generating scaffold for smiles CC(c1ccccn1)=[N+]1[N-]C(N)=[S+][AlH3-]12[OH+]B(c1ccccc1)[OH+]2 - invalid smiles string
+2026-09-30 21:25:29,860 [INFO] Generating scaffold 31000/41127
+2026-09-30 21:25:30,079 [INFO] Generating scaffold 32000/41127
+2026-09-30 21:25:30,293 [INFO] Generating scaffold 33000/41127
+2026-09-30 21:25:30,539 [INFO] Generating scaffold 34000/41127
+2026-09-30 21:25:30,913 [INFO] Generating scaffold 35000/41127
+2026-09-30 21:25:31,130 [INFO] Not generating scaffold for smiles [Na+].c1ccc([SH+][GeH2+]2[SH+]c3ccccc3[SH+]2)c([SH+][GeH2+]2[SH+]c3ccccc3[SH+]2)c1 - invalid smiles string
+2026-09-30 21:25:31,185 [INFO] Generating scaffold 36000/41127
+2026-09-30 21:25:31,404 [INFO] Generating scaffold 37000/41127
+2026-09-30 21:25:31,615 [INFO] Generating scaffold 38000/41127
+2026-09-30 21:25:31,847 [INFO] Generating scaffold 39000/41127
+2026-09-30 21:25:32,069 [INFO] Generating scaffold 40000/41127
+2026-09-30 21:25:32,314 [INFO] Generating scaffold 41000/41127
+2026-09-30 21:25:32,373 [INFO] About to sort in scaffold sets
+2026-09-30 21:25:32,379 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:32,380 [INFO] Selecting from input shard 1/6 for selection output shard 1
+2026-09-30 21:25:32,396 [INFO] Selecting from input shard 2/6 for selection output shard 1
+2026-09-30 21:25:32,410 [INFO] Selecting from input shard 3/6 for selection output shard 1
+2026-09-30 21:25:32,427 [INFO] Selecting from input shard 4/6 for selection output shard 1
+2026-09-30 21:25:32,437 [INFO] Selecting from input shard 5/6 for selection output shard 1
+2026-09-30 21:25:32,460 [INFO] Selecting from input shard 6/6 for selection output shard 1
+2026-09-30 21:25:32,570 [INFO] Constructing selection output shard 2
+2026-09-30 21:25:32,571 [INFO] Selecting from input shard 1/6 for selection output shard 2
+2026-09-30 21:25:32,572 [INFO] Selecting from input shard 2/6 for selection output shard 2
+2026-09-30 21:25:32,573 [INFO] Selecting from input shard 3/6 for selection output shard 2
+2026-09-30 21:25:32,578 [INFO] Selecting from input shard 4/6 for selection output shard 2
+2026-09-30 21:25:32,584 [INFO] Selecting from input shard 5/6 for selection output shard 2
+2026-09-30 21:25:32,600 [INFO] Selecting from input shard 6/6 for selection output shard 2
+2026-09-30 21:25:32,699 [INFO] Constructing selection output shard 3
+2026-09-30 21:25:32,701 [INFO] Selecting from input shard 1/6 for selection output shard 3
+2026-09-30 21:25:32,701 [INFO] Selecting from input shard 2/6 for selection output shard 3
+2026-09-30 21:25:32,702 [INFO] Selecting from input shard 3/6 for selection output shard 3
+2026-09-30 21:25:32,706 [INFO] Selecting from input shard 4/6 for selection output shard 3
+2026-09-30 21:25:32,712 [INFO] Selecting from input shard 5/6 for selection output shard 3
+2026-09-30 21:25:32,722 [INFO] Selecting from input shard 6/6 for selection output shard 3
+2026-09-30 21:25:32,820 [INFO] Constructing selection output shard 4
+2026-09-30 21:25:32,821 [INFO] Selecting from input shard 1/6 for selection output shard 4
+2026-09-30 21:25:32,822 [INFO] Selecting from input shard 2/6 for selection output shard 4
+2026-09-30 21:25:32,822 [INFO] Selecting from input shard 3/6 for selection output shard 4
+2026-09-30 21:25:32,826 [INFO] Selecting from input shard 4/6 for selection output shard 4
+2026-09-30 21:25:32,831 [INFO] Selecting from input shard 5/6 for selection output shard 4
+2026-09-30 21:25:32,841 [INFO] Selecting from input shard 6/6 for selection output shard 4
+2026-09-30 21:25:32,943 [INFO] Constructing selection output shard 5
+2026-09-30 21:25:32,944 [INFO] Selecting from input shard 1/6 for selection output shard 5
+2026-09-30 21:25:32,944 [INFO] Selecting from input shard 2/6 for selection output shard 5
+2026-09-30 21:25:32,944 [INFO] Selecting from input shard 3/6 for selection output shard 5
+2026-09-30 21:25:32,952 [INFO] TIMING: dataset construction took 0.573 s
+2026-09-30 21:25:32,952 [INFO] Loading dataset from disk.
+2026-09-30 21:25:32,957 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:32,957 [INFO] Selecting from input shard 1/6 for selection output shard 1
+2026-09-30 21:25:32,958 [INFO] Selecting from input shard 2/6 for selection output shard 1
+2026-09-30 21:25:32,960 [INFO] Selecting from input shard 3/6 for selection output shard 1
+2026-09-30 21:25:32,998 [INFO] TIMING: dataset construction took 0.042 s
+2026-09-30 21:25:32,999 [INFO] Loading dataset from disk.
+2026-09-30 21:25:33,000 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:33,001 [INFO] Selecting from input shard 1/6 for selection output shard 1
+2026-09-30 21:25:33,002 [INFO] Selecting from input shard 2/6 for selection output shard 1
+2026-09-30 21:25:33,033 [INFO] TIMING: dataset construction took 0.032 s
+2026-09-30 21:25:33,033 [INFO] Loading dataset from disk.
+2026-09-30 21:25:33,034 [INFO] About to transform data.
+2026-09-30 21:25:33,104 [INFO] hiv train: removed 61 rows (SMILES > 200)
+2026-09-30 21:25:33,270 [INFO] Saved train split to datasets/hiv/train.csv
+2026-09-30 21:25:33,276 [INFO] hiv valid: removed 10 rows (SMILES > 200)
+2026-09-30 21:25:33,298 [INFO] Saved valid split to datasets/hiv/valid.csv
+2026-09-30 21:25:33,306 [INFO] hiv test: removed 4 rows (SMILES > 200)
+2026-09-30 21:25:33,624 [INFO] Saved test split to datasets/hiv/test.csv
+2026-09-30 21:25:33,624 [INFO] Processing dataset: tox21
+2026-09-30 21:25:33,634 [INFO] About to featurize tox21 dataset.
+2026-09-30 21:25:34,794 [INFO] Loading raw samples now.
+2026-09-30 21:25:34,795 [INFO] shard_size: 8192
+2026-09-30 21:25:34,796 [INFO] About to start loading CSV from /var/folders/rr/24f28zy54p19m85qmq5k28jr0000gn/T/tox21.csv.gz
+2026-09-30 21:25:34,846 [INFO] Loading shard 1 of size 8192.
+2026-09-30 21:25:34,874 [INFO] About to featurize shard.
+2026-09-30 21:25:35,030 [INFO] TIMING: featurizing shard 0 took 0.155 s
+2026-09-30 21:25:35,127 [INFO] TIMING: dataset construction took 0.331 s
+2026-09-30 21:25:35,127 [INFO] Loading dataset from disk.
+2026-09-30 21:25:35,144 [INFO] About to split dataset with ScaffoldSplitter splitter.
+2026-09-30 21:25:35,144 [INFO] Computing train/valid/test indices
+2026-09-30 21:25:35,147 [INFO] About to generate scaffolds
+2026-09-30 21:25:35,150 [INFO] Generating scaffold 0/7831
+2026-09-30 21:25:35,317 [INFO] Generating scaffold 1000/7831
+2026-09-30 21:25:35,391 [INFO] Not generating scaffold for smiles NC(=O)NC1N=C(O[AlH3](O)O)NC1=O - invalid smiles string
+2026-09-30 21:25:35,486 [INFO] Generating scaffold 2000/7831
+2026-09-30 21:25:35,533 [INFO] Not generating scaffold for smiles O=CO[AlH3](OC=O)OC=O - invalid smiles string
+2026-09-30 21:25:35,534 [INFO] Not generating scaffold for smiles CC(=O)O[AlH3](O)O - invalid smiles string
+2026-09-30 21:25:35,870 [INFO] Generating scaffold 3000/7831
+2026-09-30 21:25:35,949 [INFO] Not generating scaffold for smiles CC(=O)O[AlH3](O)OC(C)=O - invalid smiles string
+2026-09-30 21:25:36,013 [INFO] Generating scaffold 4000/7831
+2026-09-30 21:25:36,092 [INFO] Not generating scaffold for smiles CCOC(=O)/C=C(/C)O[AlH3](OC(C)CC)OC(C)CC - invalid smiles string
+2026-09-30 21:25:36,106 [INFO] Not generating scaffold for smiles CCCCO[AlH3](OCCCC)OCCCC - invalid smiles string
+2026-09-30 21:25:36,176 [INFO] Generating scaffold 5000/7831
+2026-09-30 21:25:36,255 [INFO] Not generating scaffold for smiles O=S(=O)(OC[C@H]1O[C@H](O[C@]2(COS(=O)(=O)O[AlH3](O)O)O[C@H](COS(=O)(=O)O[AlH3](O)O)[C@@H](OS(=O)(=O)O[AlH3](O)O)[C@@H]2OS(=O)(=O)O[AlH3](O)O)[C@H](OS(=O)(=O)O[AlH3](O)O)[C@@H](OS(=O)(=O)O[AlH3](O)O)[C@@H]1OS(=O)(=O)O[AlH3](O)O)O[AlH3](O)O.O[AlH3](O)[AlH3](O)O.O[AlH3](O)[AlH3](O)O.O[AlH3](O)[AlH3](O)O.O[AlH3](O)[AlH3](O)O - invalid smiles string
+2026-09-30 21:25:36,315 [INFO] Generating scaffold 6000/7831
+2026-09-30 21:25:36,444 [INFO] Not generating scaffold for smiles CCCCCCCCCCCCCCCCCC(=O)O[AlH3](O)O - invalid smiles string
+2026-09-30 21:25:36,483 [INFO] Generating scaffold 7000/7831
+2026-09-30 21:25:36,624 [INFO] About to sort in scaffold sets
+2026-09-30 21:25:36,626 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:36,627 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:36,701 [INFO] TIMING: dataset construction took 0.074 s
+2026-09-30 21:25:36,701 [INFO] Loading dataset from disk.
+2026-09-30 21:25:36,703 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:36,704 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:36,711 [INFO] TIMING: dataset construction took 0.008 s
+2026-09-30 21:25:36,711 [INFO] Loading dataset from disk.
+2026-09-30 21:25:36,713 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:36,713 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:36,721 [INFO] TIMING: dataset construction took 0.008 s
+2026-09-30 21:25:36,721 [INFO] Loading dataset from disk.
+2026-09-30 21:25:36,722 [INFO] About to transform data.
+2026-09-30 21:25:36,745 [INFO] tox21 train: removed 16 rows (SMILES > 200)
+2026-09-30 21:25:36,796 [INFO] Saved train split to datasets/tox21/train.csv
+2026-09-30 21:25:36,798 [INFO] tox21 valid: removed 9 rows (SMILES > 200)
+2026-09-30 21:25:36,805 [INFO] Saved valid split to datasets/tox21/valid.csv
+2026-09-30 21:25:36,806 [INFO] tox21 test: removed 14 rows (SMILES > 200)
+2026-09-30 21:25:36,813 [INFO] Saved test split to datasets/tox21/test.csv
+2026-09-30 21:25:36,813 [INFO] Processing dataset: lipo
+2026-09-30 21:25:36,815 [INFO] About to featurize lipo dataset.
+2026-09-30 21:25:38,222 [INFO] Loading raw samples now.
+2026-09-30 21:25:38,223 [INFO] shard_size: 8192
+2026-09-30 21:25:38,223 [INFO] About to start loading CSV from /var/folders/rr/24f28zy54p19m85qmq5k28jr0000gn/T/Lipophilicity.csv
+2026-09-30 21:25:38,231 [INFO] Loading shard 1 of size 8192.
+2026-09-30 21:25:38,232 [INFO] About to featurize shard.
+2026-09-30 21:25:38,235 [INFO] TIMING: featurizing shard 0 took 0.004 s
+2026-09-30 21:25:38,259 [INFO] TIMING: dataset construction took 0.036 s
+2026-09-30 21:25:38,260 [INFO] Loading dataset from disk.
+2026-09-30 21:25:38,261 [INFO] About to split dataset with ScaffoldSplitter splitter.
+2026-09-30 21:25:38,261 [INFO] Computing train/valid/test indices
+2026-09-30 21:25:38,262 [INFO] About to generate scaffolds
+2026-09-30 21:25:38,263 [INFO] Generating scaffold 0/4200
+2026-09-30 21:25:38,497 [INFO] Generating scaffold 1000/4200
+2026-09-30 21:25:38,722 [INFO] Generating scaffold 2000/4200
+2026-09-30 21:25:38,948 [INFO] Generating scaffold 3000/4200
+2026-09-30 21:25:39,163 [INFO] Generating scaffold 4000/4200
+2026-09-30 21:25:39,208 [INFO] About to sort in scaffold sets
+2026-09-30 21:25:39,209 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:39,209 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:39,242 [INFO] TIMING: dataset construction took 0.033 s
+2026-09-30 21:25:39,242 [INFO] Loading dataset from disk.
+2026-09-30 21:25:39,244 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:39,244 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:39,246 [INFO] TIMING: dataset construction took 0.002 s
+2026-09-30 21:25:39,246 [INFO] Loading dataset from disk.
+2026-09-30 21:25:39,247 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:39,247 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:39,249 [INFO] TIMING: dataset construction took 0.002 s
+2026-09-30 21:25:39,249 [INFO] Loading dataset from disk.
+2026-09-30 21:25:39,250 [INFO] About to transform data.
+2026-09-30 21:25:39,254 [INFO] lipo train: removed 1 rows (SMILES > 200)
+2026-09-30 21:25:39,270 [INFO] Saved train split to datasets/lipo/train.csv
+2026-09-30 21:25:39,271 [INFO] lipo valid: removed 1 rows (SMILES > 200)
+2026-09-30 21:25:39,273 [INFO] Saved valid split to datasets/lipo/valid.csv
+2026-09-30 21:25:39,274 [INFO] lipo test: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:39,276 [INFO] Saved test split to datasets/lipo/test.csv
+2026-09-30 21:25:39,276 [INFO] Processing dataset: freesolv
+2026-09-30 21:25:39,276 [INFO] About to featurize freesolv dataset.
+2026-09-30 21:25:40,374 [INFO] Loading raw samples now.
+2026-09-30 21:25:40,374 [INFO] shard_size: 8192
+2026-09-30 21:25:40,375 [INFO] About to start loading CSV from /var/folders/rr/24f28zy54p19m85qmq5k28jr0000gn/T/freesolv.csv.gz
+2026-09-30 21:25:40,379 [INFO] Loading shard 1 of size 8192.
+2026-09-30 21:25:40,380 [INFO] About to featurize shard.
+2026-09-30 21:25:40,382 [INFO] TIMING: featurizing shard 0 took 0.002 s
+2026-09-30 21:25:40,389 [INFO] TIMING: dataset construction took 0.015 s
+2026-09-30 21:25:40,390 [INFO] Loading dataset from disk.
+2026-09-30 21:25:40,392 [INFO] About to split dataset with ScaffoldSplitter splitter.
+2026-09-30 21:25:40,392 [INFO] Computing train/valid/test indices
+2026-09-30 21:25:40,393 [INFO] About to generate scaffolds
+2026-09-30 21:25:40,394 [INFO] Generating scaffold 0/642
+2026-09-30 21:25:40,435 [INFO] About to sort in scaffold sets
+2026-09-30 21:25:40,436 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:40,436 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:40,440 [INFO] TIMING: dataset construction took 0.004 s
+2026-09-30 21:25:40,440 [INFO] Loading dataset from disk.
+2026-09-30 21:25:40,441 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:40,441 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:40,442 [INFO] TIMING: dataset construction took 0.001 s
+2026-09-30 21:25:40,442 [INFO] Loading dataset from disk.
+2026-09-30 21:25:40,443 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:40,443 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:40,445 [INFO] TIMING: dataset construction took 0.002 s
+2026-09-30 21:25:40,445 [INFO] Loading dataset from disk.
+2026-09-30 21:25:40,446 [INFO] About to transform data.
+2026-09-30 21:25:40,447 [INFO] freesolv train: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:40,450 [INFO] Saved train split to datasets/freesolv/train.csv
+2026-09-30 21:25:40,451 [INFO] freesolv valid: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:40,452 [INFO] Saved valid split to datasets/freesolv/valid.csv
+2026-09-30 21:25:40,452 [INFO] freesolv test: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:40,453 [INFO] Saved test split to datasets/freesolv/test.csv
+2026-09-30 21:25:40,453 [INFO] Processing dataset: delaney
+2026-09-30 21:25:40,453 [INFO] About to featurize delaney dataset.
+2026-09-30 21:25:41,744 [INFO] Loading raw samples now.
+2026-09-30 21:25:41,744 [INFO] shard_size: 8192
+2026-09-30 21:25:41,745 [INFO] About to start loading CSV from /var/folders/rr/24f28zy54p19m85qmq5k28jr0000gn/T/delaney-processed.csv
+2026-09-30 21:25:41,750 [INFO] Loading shard 1 of size 8192.
+2026-09-30 21:25:41,751 [INFO] About to featurize shard.
+2026-09-30 21:25:41,753 [INFO] TIMING: featurizing shard 0 took 0.002 s
+2026-09-30 21:25:41,761 [INFO] TIMING: dataset construction took 0.015 s
+2026-09-30 21:25:41,761 [INFO] Loading dataset from disk.
+2026-09-30 21:25:41,763 [INFO] About to split dataset with ScaffoldSplitter splitter.
+2026-09-30 21:25:41,763 [INFO] Computing train/valid/test indices
+2026-09-30 21:25:41,764 [INFO] About to generate scaffolds
+2026-09-30 21:25:41,765 [INFO] Generating scaffold 0/1128
+2026-09-30 21:25:41,888 [INFO] Generating scaffold 1000/1128
+2026-09-30 21:25:41,932 [INFO] About to sort in scaffold sets
+2026-09-30 21:25:41,934 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:41,934 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:41,940 [INFO] TIMING: dataset construction took 0.006 s
+2026-09-30 21:25:41,940 [INFO] Loading dataset from disk.
+2026-09-30 21:25:41,941 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:41,941 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:41,944 [INFO] TIMING: dataset construction took 0.003 s
+2026-09-30 21:25:41,944 [INFO] Loading dataset from disk.
+2026-09-30 21:25:41,946 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:41,946 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:41,948 [INFO] TIMING: dataset construction took 0.002 s
+2026-09-30 21:25:41,948 [INFO] Loading dataset from disk.
+2026-09-30 21:25:41,949 [INFO] About to transform data.
+2026-09-30 21:25:41,950 [INFO] delaney train: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:41,954 [INFO] Saved train split to datasets/delaney/train.csv
+2026-09-30 21:25:41,955 [INFO] delaney valid: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:41,956 [INFO] Saved valid split to datasets/delaney/valid.csv
+2026-09-30 21:25:41,956 [INFO] delaney test: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:41,957 [INFO] Saved test split to datasets/delaney/test.csv
+2026-09-30 21:25:41,957 [INFO] Processing dataset: bace_regression
+2026-09-30 21:25:41,958 [INFO] About to featurize bace_r dataset.
+2026-09-30 21:25:41,958 [INFO] Loading raw samples now.
+2026-09-30 21:25:41,958 [INFO] shard_size: 8192
+2026-09-30 21:25:41,958 [INFO] About to start loading CSV from /var/folders/rr/24f28zy54p19m85qmq5k28jr0000gn/T/bace.csv
+2026-09-30 21:25:42,021 [INFO] Loading shard 1 of size 8192.
+2026-09-30 21:25:42,023 [INFO] About to featurize shard.
+2026-09-30 21:25:42,024 [INFO] TIMING: featurizing shard 0 took 0.001 s
+2026-09-30 21:25:42,034 [INFO] TIMING: dataset construction took 0.077 s
+2026-09-30 21:25:42,034 [INFO] Loading dataset from disk.
+2026-09-30 21:25:42,035 [INFO] About to split dataset with ScaffoldSplitter splitter.
+2026-09-30 21:25:42,035 [INFO] Computing train/valid/test indices
+2026-09-30 21:25:42,036 [INFO] About to generate scaffolds
+2026-09-30 21:25:42,036 [INFO] Generating scaffold 0/1513
+2026-09-30 21:25:42,319 [INFO] Generating scaffold 1000/1513
+2026-09-30 21:25:42,446 [INFO] About to sort in scaffold sets
+2026-09-30 21:25:42,447 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:42,447 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:42,456 [INFO] TIMING: dataset construction took 0.009 s
+2026-09-30 21:25:42,456 [INFO] Loading dataset from disk.
+2026-09-30 21:25:42,457 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:42,457 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:42,459 [INFO] TIMING: dataset construction took 0.002 s
+2026-09-30 21:25:42,459 [INFO] Loading dataset from disk.
+2026-09-30 21:25:42,460 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:42,460 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:42,462 [INFO] TIMING: dataset construction took 0.002 s
+2026-09-30 21:25:42,462 [INFO] Loading dataset from disk.
+2026-09-30 21:25:42,463 [INFO] About to transform data.
+2026-09-30 21:25:42,464 [INFO] bace_regression train: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:42,471 [INFO] Saved train split to datasets/bace_regression/train.csv
+2026-09-30 21:25:42,471 [INFO] bace_regression valid: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:42,472 [INFO] Saved valid split to datasets/bace_regression/valid.csv
+2026-09-30 21:25:42,473 [INFO] bace_regression test: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:42,474 [INFO] Saved test split to datasets/bace_regression/test.csv
+2026-09-30 21:25:42,474 [INFO] Processing dataset: clearance
+2026-09-30 21:25:42,475 [INFO] About to featurize clearance dataset.
+2026-09-30 21:25:43,587 [INFO] Loading raw samples now.
+2026-09-30 21:25:43,587 [INFO] shard_size: 8192
+2026-09-30 21:25:43,587 [INFO] About to start loading CSV from /var/folders/rr/24f28zy54p19m85qmq5k28jr0000gn/T/clearance.csv
+2026-09-30 21:25:43,592 [INFO] Loading shard 1 of size 8192.
+2026-09-30 21:25:43,592 [INFO] About to featurize shard.
+2026-09-30 21:25:43,594 [INFO] TIMING: featurizing shard 0 took 0.001 s
+2026-09-30 21:25:43,603 [INFO] TIMING: dataset construction took 0.015 s
+2026-09-30 21:25:43,603 [INFO] Loading dataset from disk.
+2026-09-30 21:25:43,605 [INFO] About to split dataset with ScaffoldSplitter splitter.
+2026-09-30 21:25:43,605 [INFO] Computing train/valid/test indices
+2026-09-30 21:25:43,606 [INFO] About to generate scaffolds
+2026-09-30 21:25:43,607 [INFO] Generating scaffold 0/837
+2026-09-30 21:25:43,832 [INFO] About to sort in scaffold sets
+2026-09-30 21:25:43,832 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:43,832 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:43,838 [INFO] TIMING: dataset construction took 0.006 s
+2026-09-30 21:25:43,838 [INFO] Loading dataset from disk.
+2026-09-30 21:25:43,839 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:43,840 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:43,841 [INFO] TIMING: dataset construction took 0.001 s
+2026-09-30 21:25:43,841 [INFO] Loading dataset from disk.
+2026-09-30 21:25:43,842 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:43,842 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:43,843 [INFO] TIMING: dataset construction took 0.001 s
+2026-09-30 21:25:43,843 [INFO] Loading dataset from disk.
+2026-09-30 21:25:43,844 [INFO] About to transform data.
+2026-09-30 21:25:43,845 [INFO] clearance train: removed 1 rows (SMILES > 200)
+2026-09-30 21:25:43,849 [INFO] Saved train split to datasets/clearance/train.csv
+2026-09-30 21:25:43,849 [INFO] clearance valid: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:43,850 [INFO] Saved valid split to datasets/clearance/valid.csv
+2026-09-30 21:25:43,851 [INFO] clearance test: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:43,851 [INFO] Saved test split to datasets/clearance/test.csv
+2026-09-30 21:25:43,851 [INFO] Processing dataset: bbbp
+2026-09-30 21:25:43,851 [INFO] About to featurize bbbp dataset.
+2026-09-30 21:25:46,057 [INFO] Loading raw samples now.
+2026-09-30 21:25:46,057 [INFO] shard_size: 8192
+2026-09-30 21:25:46,058 [INFO] About to start loading CSV from /var/folders/rr/24f28zy54p19m85qmq5k28jr0000gn/T/BBBP.csv
+2026-09-30 21:25:46,063 [INFO] Loading shard 1 of size 8192.
+2026-09-30 21:25:46,064 [INFO] About to featurize shard.
+2026-09-30 21:25:46,066 [INFO] TIMING: featurizing shard 0 took 0.002 s
+2026-09-30 21:25:46,082 [INFO] TIMING: dataset construction took 0.024 s
+2026-09-30 21:25:46,082 [INFO] Loading dataset from disk.
+2026-09-30 21:25:46,084 [INFO] About to split dataset with ScaffoldSplitter splitter.
+2026-09-30 21:25:46,084 [INFO] Computing train/valid/test indices
+2026-09-30 21:25:46,085 [INFO] About to generate scaffolds
+2026-09-30 21:25:46,085 [INFO] Generating scaffold 0/2050
+2026-09-30 21:25:46,107 [INFO] Not generating scaffold for smiles O=N([O-])C1=C(CN=C1NCCSCc2ncccc2)Cc3ccccc3 - invalid smiles string
+2026-09-30 21:25:46,109 [INFO] Not generating scaffold for smiles c1(nc(NC(N)=[NH2])sc1)CSCCNC(=[NH]C#N)NC - invalid smiles string
+2026-09-30 21:25:46,189 [INFO] Not generating scaffold for smiles Cc1nc(sc1)\[NH]=C(\N)N - invalid smiles string
+2026-09-30 21:25:46,229 [INFO] Not generating scaffold for smiles s1cc(CSCCN\C(NC)=[NH]\C#N)nc1\[NH]=C(\N)N - invalid smiles string
+2026-09-30 21:25:46,235 [INFO] Not generating scaffold for smiles c1c(c(ncc1)CSCCN\C(=[NH]\C#N)NCC)Br - invalid smiles string
+2026-09-30 21:25:46,237 [INFO] Not generating scaffold for smiles n1c(csc1\[NH]=C(\N)N)c1ccccc1 - invalid smiles string
+2026-09-30 21:25:46,238 [INFO] Not generating scaffold for smiles n1c(csc1\[NH]=C(\N)N)c1cccc(c1)N - invalid smiles string
+2026-09-30 21:25:46,238 [INFO] Not generating scaffold for smiles n1c(csc1\[NH]=C(\N)N)c1cccc(c1)NC(C)=O - invalid smiles string
+2026-09-30 21:25:46,239 [INFO] Not generating scaffold for smiles n1c(csc1\[NH]=C(\N)N)c1cccc(c1)N\C(NC)=[NH]\C#N - invalid smiles string
+2026-09-30 21:25:46,240 [INFO] Not generating scaffold for smiles s1cc(nc1\[NH]=C(\N)N)C - invalid smiles string
+2026-09-30 21:25:46,246 [INFO] Not generating scaffold for smiles c1(cc(N\C(=[NH]\c2cccc(c2)CC)C)ccc1)CC - invalid smiles string
+2026-09-30 21:25:46,334 [INFO] Generating scaffold 1000/2050
+2026-09-30 21:25:46,509 [INFO] Generating scaffold 2000/2050
+2026-09-30 21:25:46,518 [INFO] About to sort in scaffold sets
+2026-09-30 21:25:46,519 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:46,519 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:46,534 [INFO] TIMING: dataset construction took 0.015 s
+2026-09-30 21:25:46,534 [INFO] Loading dataset from disk.
+2026-09-30 21:25:46,536 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:46,536 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:46,539 [INFO] TIMING: dataset construction took 0.003 s
+2026-09-30 21:25:46,539 [INFO] Loading dataset from disk.
+2026-09-30 21:25:46,540 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:46,540 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:46,543 [INFO] TIMING: dataset construction took 0.002 s
+2026-09-30 21:25:46,543 [INFO] Loading dataset from disk.
+2026-09-30 21:25:46,543 [INFO] About to transform data.
+2026-09-30 21:25:46,547 [INFO] bbbp train: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:46,559 [INFO] Saved train split to datasets/bbbp/train.csv
+2026-09-30 21:25:46,561 [INFO] bbbp valid: removed 2 rows (SMILES > 200)
+2026-09-30 21:25:46,563 [INFO] Saved valid split to datasets/bbbp/valid.csv
+2026-09-30 21:25:46,563 [INFO] bbbp test: removed 5 rows (SMILES > 200)
+2026-09-30 21:25:46,565 [INFO] Saved test split to datasets/bbbp/test.csv
+2026-09-30 21:25:46,565 [INFO] Processing dataset: bace_classification
+2026-09-30 21:25:46,565 [INFO] About to featurize bace_c dataset.
+2026-09-30 21:25:46,565 [INFO] Loading raw samples now.
+2026-09-30 21:25:46,565 [INFO] shard_size: 8192
+2026-09-30 21:25:46,565 [INFO] About to start loading CSV from /var/folders/rr/24f28zy54p19m85qmq5k28jr0000gn/T/bace.csv
+2026-09-30 21:25:46,607 [INFO] Loading shard 1 of size 8192.
+2026-09-30 21:25:46,609 [INFO] About to featurize shard.
+2026-09-30 21:25:46,610 [INFO] TIMING: featurizing shard 0 took 0.001 s
+2026-09-30 21:25:46,617 [INFO] TIMING: dataset construction took 0.051 s
+2026-09-30 21:25:46,617 [INFO] Loading dataset from disk.
+2026-09-30 21:25:46,618 [INFO] About to split dataset with ScaffoldSplitter splitter.
+2026-09-30 21:25:46,618 [INFO] Computing train/valid/test indices
+2026-09-30 21:25:46,618 [INFO] About to generate scaffolds
+2026-09-30 21:25:46,619 [INFO] Generating scaffold 0/1513
+2026-09-30 21:25:46,903 [INFO] Generating scaffold 1000/1513
+2026-09-30 21:25:47,030 [INFO] About to sort in scaffold sets
+2026-09-30 21:25:47,031 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:47,031 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:47,038 [INFO] TIMING: dataset construction took 0.007 s
+2026-09-30 21:25:47,038 [INFO] Loading dataset from disk.
+2026-09-30 21:25:47,039 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:47,039 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:47,042 [INFO] TIMING: dataset construction took 0.002 s
+2026-09-30 21:25:47,042 [INFO] Loading dataset from disk.
+2026-09-30 21:25:47,043 [INFO] Constructing selection output shard 1
+2026-09-30 21:25:47,043 [INFO] Selecting from input shard 1/1 for selection output shard 1
+2026-09-30 21:25:47,044 [INFO] TIMING: dataset construction took 0.001 s
+2026-09-30 21:25:47,044 [INFO] Loading dataset from disk.
+2026-09-30 21:25:47,045 [INFO] About to transform data.
+2026-09-30 21:25:47,047 [INFO] bace_classification train: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:47,052 [INFO] Saved train split to datasets/bace_classification/train.csv
+2026-09-30 21:25:47,053 [INFO] bace_classification valid: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:47,054 [INFO] Saved valid split to datasets/bace_classification/valid.csv
+2026-09-30 21:25:47,055 [INFO] bace_classification test: removed 0 rows (SMILES > 200)
+2026-09-30 21:25:47,055 [INFO] Saved test split to datasets/bace_classification/test.csv
+2026-09-30 21:25:47,055 [INFO] All datasets processed.
