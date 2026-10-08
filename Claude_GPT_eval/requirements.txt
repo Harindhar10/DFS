@@ -1,0 +1,9 @@
+litellm>=1.103
+langfuse>=4.0
+anthropic>=1.9
+deepchem>=2.8
+rdkit
+pandas
+numpy
+scikit-learn
+python-dotenv
