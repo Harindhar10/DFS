@@ -10,8 +10,8 @@ import json
 import numpy as np
 import pandas as pd
 
-from config import DATASETS
-from prompts import load_split
+from .config import DATASETS
+from .prompts import load_split
 
 
 def load_results(run_dir):

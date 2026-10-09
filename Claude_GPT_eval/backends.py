@@ -14,8 +14,9 @@ import anthropic
 import litellm
 from langfuse import get_client, propagate_attributes
 
-from config import ANTHROPIC_CACHE_MIN_TOKENS, BATCH_DISCOUNT, DATASETS, MODEL_SETTINGS, PRICE_FALLBACK
-from prompts import output_schema, system_text
+from config import ANTHROPIC_CACHE_MIN_TOKENS, BATCH_DISCOUNT, MODEL_SETTINGS, PRICE_FALLBACK
+from molnet.config import DATASETS
+from molnet.prompts import output_schema, system_text
 
 litellm.drop_params = True  # drop params a model does not support instead of erroring
 for _name, _info in PRICE_FALLBACK.items():

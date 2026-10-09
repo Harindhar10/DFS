@@ -1,7 +1,7 @@
 """Write DeepChem scaffold splits of the MoleculeNet datasets as CSVs.
 
-    python prepare_data.py                      # all datasets in config.DATASETS
-    python prepare_data.py --datasets bbbp,hiv
+    python -m molnet.prepare_data                   # all datasets in config.DATASETS
+    python -m molnet.prepare_data --datasets bbbp,hiv
 
 Each dataset becomes <data_dir>/<name>/{train,valid,test}.csv with a `smiles` column and
 one column per task. Molecules with SMILES longer than 200 characters are dropped.
@@ -12,7 +12,7 @@ from pathlib import Path
 import deepchem as dc
 import pandas as pd
 
-from config import DATA_DIR, DATASETS
+from .config import DATA_DIR, DATASETS
 
 MAX_SMILES_LEN = 200
 

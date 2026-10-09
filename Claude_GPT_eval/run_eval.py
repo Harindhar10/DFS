@@ -15,18 +15,23 @@ Realtime smoke test:
 import argparse
 import json
 import re
+import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
+from pathlib import Path
 
 from dotenv import load_dotenv
 
-from config import DATASETS, DEFAULT_MODELS, DEFAULT_SHOTS, ROOT, RUNS_DIR
-from prompts import build_messages, load_split, parse_response, system_text
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # DFS root, for the shared molnet package
+
+from config import DEFAULT_MODELS, ROOT, RUNS_DIR  # noqa: E402
+from molnet.config import DATASETS, DEFAULT_SHOTS  # noqa: E402
+from molnet.prompts import build_messages, load_split, parse_response, system_text  # noqa: E402
 
 load_dotenv(ROOT / '.env')
 
 import backends  # noqa: E402  (imports litellm and langfuse; after .env is loaded)
-from evaluate import evaluate_run, load_results  # noqa: E402
+from molnet.evaluate import evaluate_run, load_results  # noqa: E402
 
 CUSTOM_ID_RE = re.compile(r'^(?P<dataset>.+)-k(?P<k>\d+)-r(?P<row>\d+)$')
 

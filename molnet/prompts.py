@@ -13,7 +13,7 @@ from functools import cache
 import numpy as np
 import pandas as pd
 
-from config import CLASSIFICATION_UNIT, DATA_DIR, DATASETS
+from .config import CLASSIFICATION_UNIT, DATA_DIR, DATASETS
 
 
 @cache

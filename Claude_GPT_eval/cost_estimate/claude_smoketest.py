@@ -42,7 +42,7 @@ N_PER_DATASET = 2            # pilot molecules per dataset (from the valid split
 SEED = 0
 CACHE_TTL = "1h"                    # batches can take > 5 min
 
-DATA_DIR = Path("Claude_GPT_eval/datasets")             # expects data/<dataset>/{train,valid}.csv
+DATA_DIR = Path("molnet/datasets")                      # expects data/<dataset>/{train,valid}.csv
 SMILES_COL = "smiles"               # every other column is treated as a label
 OUT_DIR = Path("pilot_results")
 
