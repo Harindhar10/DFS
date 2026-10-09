@@ -1,0 +1,9 @@
+custom_id,dataset,status,stop_reason,input_tokens,cache_write_tokens,cache_read_tokens,output_tokens,visible_tokens,thinking_tokens,parsed,answer,truth,text
+bbbp-0,bbbp,succeeded,end_turn,39,820,0,216,214,2,True,"{""p_np"": 0.8}","{""p_np"": 1}","This SMILES looks like a bicyclic imidazoline-fused compound: a phenyl group attached to a tetrahydroimidazo[1,2-a]imidazole core. That fits tetramisole/levamisole, which is 6-phenyl-2,3,5,6-tetrahydroimidazo[2,1-b]thiazole. The SMILES here has no sulfur, so it is the thiazole-to-imidazole analog. This analog is likely a small, basic, lipophilic molecule, so I expect it to cross the blood-brain barrier. This estimate comes from structural reasoning, not a calculation.
+
+{""p_np"": 0.8}"
+bbbp-1,bbbp,succeeded,end_turn,65,0,820,143,141,2,True,"{""p_np"": 0.93}","{""p_np"": 1}","This is a thienotriazolodiazepine, a brotizolam analog with a cyclohexyl group in place of the methyl. It is a lipophilic benzodiazepine-like compound with no hydrogen bond donors, so it is likely to cross the blood-brain barrier. I estimated this from structural similarity to known CNS-active benzodiazepines rather than from a calculation.
+
+```json
+{""p_np"": 0.93}
+```"
