@@ -7,10 +7,13 @@
   anthropic SDK directly. Batch results bypass litellm's callbacks, so their cost is
   computed with litellm's price table and they are logged to Langfuse here.
 """
+import contextlib
 import json
 import os
 
 import anthropic
+
+os.environ.setdefault('OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT', 'true')
 import litellm
 from langfuse import get_client, propagate_attributes
 
@@ -28,7 +31,6 @@ if os.environ.get('LANGFUSE_PUBLIC_KEY') and os.environ.get('LANGFUSE_SECRET_KEY
 else:
     LANGFUSE = None
     print('WARNING: LANGFUSE_PUBLIC_KEY/LANGFUSE_SECRET_KEY not set - nothing will be logged to Langfuse')
-
 
 # ---------------------------------------------------------------------------
 # Models and request bodies
@@ -152,7 +154,14 @@ def call_realtime(model, dataset, messages, metadata):
         'num_retries': 3,
     }
     kwargs.update({key: s[key] for key in ('temperature', 'reasoning_effort') if key in s})
-    resp = litellm.completion(**kwargs)
+    # langfuse_otel ignores litellm's trace_name/session_id/tags metadata keys, so set them
+    # on the Langfuse context instead (as log_generations does for batch results).
+    ctx = propagate_attributes(
+        session_id=metadata['session_id'], trace_name=metadata['trace_name'], tags=metadata['tags'],
+        metadata={'dataset': dataset, 'k': str(metadata['k']), 'row': str(metadata['row'])},
+    ) if LANGFUSE else contextlib.nullcontext()
+    with ctx:
+        resp = litellm.completion(**kwargs)
     cost = resp._hidden_params.get('response_cost')
     if cost is None:
         cost = litellm.completion_cost(completion_response=resp)

@@ -29,7 +29,7 @@ DATASETS = {
         'type': 'classification',
         'description': 'ClinTox - FDA-approved drugs and drug candidates that failed clinical trials for toxicity.',
         'tasks': {
-            # 'FDA_APPROVED': 'Is an FDA-approved drug.',
+            'FDA_APPROVED': 'Is an FDA-approved drug.',
             'CT_TOX': 'Failed clinical trials for toxicity reasons.',
         },
     },

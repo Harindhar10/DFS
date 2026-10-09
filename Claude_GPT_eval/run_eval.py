@@ -148,7 +148,7 @@ def cmd_submit(args):
     if cfg['mode'] == 'realtime':
         def one(model, dataset, k, row, cid, messages):
             metadata = {'session_id': run_id, 'trace_name': f'{dataset}/k{k}', 'generation_name': 'predict',
-                        'tags': [model, dataset, f'k={k}', 'realtime']}
+                        'tags': [model, dataset, f'k={k}', 'realtime'], 'k': k, 'row': row}
             try:
                 text, usage, cost, stop = backends.call_realtime(model, dataset, messages, metadata)
                 return make_record(run_id, model, cid, text, usage, cost, None, stop, 'realtime')

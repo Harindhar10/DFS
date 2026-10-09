@@ -74,8 +74,6 @@ def build_messages(dataset, split, k, row, seed):
         'You are an expert medicinal and computational chemist. You predict molecular '
         'properties from SMILES strings.',
         '',
-        f"Dataset: {ds['description']}",
-        '',
         'For the molecule given by the user, predict:',
         *(f'- {key}: {desc}' for key, desc in zip(keys, ds['tasks'].values())),
         '',

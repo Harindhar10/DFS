@@ -5,3 +5,4 @@ package-lock.json
 aizynthfinder
 batch_output
 DeepRetro
+*.__pycache__
