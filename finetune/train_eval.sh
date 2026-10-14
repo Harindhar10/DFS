@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # Train the QLoRA adapter, then score it on the held-out test split and the 250-molecule benchmark.
 # Run from the DFS repo root after setup.sh: bash finetune/train_eval.sh
+
+wandb login        # or export WANDB_API_KEY=... beforehand
+
+python finetune/prepare_uspto50k.py
+
 set -euo pipefail
 
 source "$HOME/envs/finetune/bin/activate"
