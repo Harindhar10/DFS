@@ -1,0 +1,51 @@
+### model
+model_name_or_path: Qwen/Qwen3.8-27B
+trust_remote_code: true
+quantization_bit: 4
+quantization_method: bnb
+double_quantization: true         # NF4 + double quant = QLoRA
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target: all
+
+### dataset
+dataset_dir: finetune/data
+dataset: uspto50k_retro_train
+eval_dataset: uspto50k_retro_val
+template: qwen3_nothink           # plain SMILES answers, no <think> block
+cutoff_len: 512                   # USPTO-50k reactions tokenize to well under 300 tokens
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: saves/qwen3.8-27b/qlora/uspto50k
+logging_steps: 10
+save_steps: 500
+save_total_limit: 3
+plot_loss: true
+overwrite_output_dir: true
+report_to: wandb                  # train/eval loss, lr, grad norm; wandb also samples GPU util/mem/power/temp
+run_name: qwen3.8-27b-qlora-uspto50k
+
+### train
+per_device_train_batch_size: 16
+gradient_accumulation_steps: 4    # effective batch 64
+learning_rate: 2.0e-4
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+bf16: true
+flash_attn: auto                  # FA2 if installed; on Blackwell (RTX PRO 6000) falls back to sdpa
+gradient_checkpointing: true
+ddp_timeout: 180000000
+
+### eval
+per_device_eval_batch_size: 16
+eval_strategy: steps
+eval_steps: 500

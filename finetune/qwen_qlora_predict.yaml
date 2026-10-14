@@ -1,0 +1,24 @@
+model_name_or_path: Qwen/Qwen3.8-27B
+adapter_name_or_path: saves/qwen3.8-27b/qlora/uspto50k
+trust_remote_code: true
+quantization_bit: 4
+quantization_method: bnb
+double_quantization: true
+
+stage: sft
+do_predict: true
+finetuning_type: lora
+predict_with_generate: true
+
+dataset_dir: finetune/data
+eval_dataset: uspto50k_retro_test     # run again with uspto50k_bench250
+template: qwen3_nothink
+cutoff_len: 512
+max_new_tokens: 256
+do_sample: false
+
+output_dir: saves/qwen3.8-27b/qlora/uspto50k/predict_test
+per_device_eval_batch_size: 32
+overwrite_output_dir: true
+bf16: true
+report_to: none                   # prediction run; nothing to log
