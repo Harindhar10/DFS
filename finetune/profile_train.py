@@ -115,7 +115,9 @@ class WandbProfilerCallback(TrainerCallback):
         print(f"trace: {self.trace_path}")
 
 
-args = read_args(sys.argv[1:])
+args = read_args()  # parses sys.argv: yaml in argv[1] plus key=value overrides -> dict
+if not isinstance(args, dict):
+    sys.exit("usage: python finetune/profile_train.py <config.yaml> [key=value ...]")
 args.update(
     report_to="wandb",
     run_name=f"{args.get('run_name', 'qlora')}-profile",
