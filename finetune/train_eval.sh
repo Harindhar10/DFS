@@ -8,8 +8,6 @@ python finetune/prepare_uspto50k.py
 
 set -euo pipefail
 
-source "$HOME/envs/finetune/bin/activate"
-
 # wandb logs train/eval loss and lr; GPU util/memory/power show up in the run's "System" tab.
 export WANDB_PROJECT=dfs-retro-qlora
 export WANDB_LOG_MODEL=false       # don't upload 27B checkpoints

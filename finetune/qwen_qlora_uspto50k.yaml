@@ -34,10 +34,10 @@ report_to: wandb                  # train/eval loss, lr, grad norm; wandb also s
 run_name: qwen3.8-27b-qlora-uspto50k
 
 ### train
-per_device_train_batch_size: 16
-gradient_accumulation_steps: 4    # effective batch 64
+per_device_train_batch_size: 64
+gradient_accumulation_steps: 2    # effective batch 64
 learning_rate: 2.0e-4
-num_train_epochs: 3.0
+num_train_epochs: 1.0
 lr_scheduler_type: cosine
 warmup_ratio: 0.03
 bf16: true
