@@ -10,7 +10,7 @@ do_predict: true
 finetuning_type: lora
 predict_with_generate: true
 
-dataset_dir: finetune/data
+dataset_dir: retrosynthesis/data
 eval_dataset: uspto50k_retro_test     # run again with uspto50k_bench250
 template: qwen3_nothink
 cutoff_len: 512

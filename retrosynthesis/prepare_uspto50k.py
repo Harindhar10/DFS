@@ -41,7 +41,7 @@ def to_record(prod, reac):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out_dir", default="finetune/data")
+    ap.add_argument("--out_dir", default="retrosynthesis/data")
     ap.add_argument("--exclude_csv", default="DeepRetro/data/uspto_50k_test_250.csv")
     ap.add_argument("--seed", type=int, default=42)
     args = ap.parse_args()

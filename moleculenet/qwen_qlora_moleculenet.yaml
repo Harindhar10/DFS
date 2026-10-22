@@ -1,0 +1,52 @@
+### model
+model_name_or_path: Qwen/Qwen3.8-27B
+trust_remote_code: true
+quantization_bit: 4
+quantization_method: bnb
+double_quantization: true         # NF4 + double quant = QLoRA
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target: all
+
+### dataset -- one adapter per MoleculeNet dataset; train_eval_moleculenet.sh overrides these per run
+dataset_dir: moleculenet/data
+dataset: bbbp_train
+eval_dataset: bbbp_val
+template: qwen3_5_nothink         # Qwen3.8 is model_type qwen3_5; Yes/No or number answers, no <think> block
+cutoff_len: 384                   # SMILES capped at 200 chars by prepare_data.py
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: saves/qwen3.8-27b/qlora/molnet/bbbp
+logging_steps: 10
+save_strategy: epoch
+save_total_limit: 1
+load_best_model_at_end: true      # adapter in output_dir = lowest val loss epoch
+metric_for_best_model: eval_loss
+plot_loss: true
+overwrite_output_dir: true
+report_to: wandb
+run_name: qwen3.8-27b-qlora-bbbp
+
+### train
+per_device_train_batch_size: 32
+gradient_accumulation_steps: 1    # small datasets: keep the optimizer step count up
+learning_rate: 1.0e-4
+num_train_epochs: 5.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+bf16: true
+flash_attn: auto                  # FA2 if installed; on Blackwell (RTX PRO 6000) falls back to sdpa
+gradient_checkpointing: true
+ddp_timeout: 180000000
+
+### eval
+per_device_eval_batch_size: 32
+eval_strategy: epoch

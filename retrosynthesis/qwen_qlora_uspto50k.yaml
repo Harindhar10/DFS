@@ -15,7 +15,7 @@ lora_dropout: 0.05
 lora_target: all
 
 ### dataset
-dataset_dir: finetune/data
+dataset_dir: retrosynthesis/data
 dataset: uspto50k_retro_train
 eval_dataset: uspto50k_retro_val
 template: qwen3_nothink           # plain SMILES answers, no <think> block

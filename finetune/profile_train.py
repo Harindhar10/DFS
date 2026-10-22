@@ -1,7 +1,7 @@
 """Profile a few QLoRA training steps with torch.profiler and log the results to wandb.
 
 Usage (from the DFS repo root, on the GPU box, with your environment activated):
-    WANDB_PROJECT=dfs-retro-qlora python finetune/profile_train.py finetune/qwen_qlora_uspto50k.yaml
+    WANDB_PROJECT=dfs-retro-qlora python finetune/profile_train.py retrosynthesis/qwen_qlora_uspto50k.yaml
     PROFILE_STACK=1 ...   # also record Python stacks (much slower, much bigger trace)
 
 Runs 8 optimizer steps and stops: 3 unprofiled (steps 2-3 give the clean step time),
