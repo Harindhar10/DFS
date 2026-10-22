@@ -29,7 +29,7 @@ logging_steps: 10
 save_strategy: epoch
 save_total_limit: 1
 load_best_model_at_end: true      # adapter in output_dir = lowest val loss epoch
-metric_for_best_model: eval_loss
+metric_for_best_model: eval_loss  # regression; moleculenet/train.py switches cls datasets to eval_roc_auc
 plot_loss: true
 overwrite_output_dir: true
 report_to: wandb

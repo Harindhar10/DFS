@@ -26,7 +26,8 @@ for d in $DATASETS; do
         *)               EPOCHS=1 ;;
     esac
     echo "== $d ($EPOCHS epochs) =="
-    llamafactory-cli train moleculenet/qwen_qlora_moleculenet.yaml \
+    # train.py = llamafactory-cli train + val ROC-AUC (cls) and trainable-param logging
+    python moleculenet/train.py moleculenet/qwen_qlora_moleculenet.yaml \
         dataset="${d}_train" eval_dataset="${d}_val" \
         output_dir="$SAVE_ROOT/$d" run_name="qwen3.8-27b-qlora-$d" \
         num_train_epochs="$EPOCHS"

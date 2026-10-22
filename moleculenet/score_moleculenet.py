@@ -76,6 +76,34 @@ def single_token(tokenizer, word):
     return ids[0]
 
 
+def p_yes(model, tokenizer, template, recs, batch_size, desc=None):
+    """P(Yes) per record: softmax over the Yes/No logits at the first answer token."""
+    yes, no = single_token(tokenizer, "Yes"), single_token(tokenizer, "No")
+    preds = []
+    for i in tqdm(range(0, len(recs), batch_size), desc=desc):
+        chunk = recs[i:i + batch_size]
+        out, _ = generate(model, tokenizer, [prompt_ids(tokenizer, template, r) for r in chunk], 1)
+        logits = out.logits[0].float()                       # (batch, vocab) at the first answer token
+        preds.extend(torch.softmax(logits[:, [yes, no]], dim=-1)[:, 0].tolist())
+    return preds
+
+
+def mean_roc_auc(recs, preds):
+    """Mean ROC-AUC over tasks -> (mean, {task: auc}, [tasks skipped for having one class])."""
+    by_task = defaultdict(lambda: ([], []))
+    for r, p in zip(recs, preds):
+        by_task[r["task"]][0].append(r["label"])
+        by_task[r["task"]][1].append(p)
+    aucs, skipped = {}, []
+    for t, (y, p) in by_task.items():
+        if len(set(y)) < 2:
+            skipped.append(t)        # AUC undefined when the split has one class
+            continue
+        aucs[t] = float(roc_auc_score(y, p))
+    mean = float(np.mean(list(aucs.values()))) if aucs else float("nan")
+    return mean, aucs, skipped
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dataset", required=True)
@@ -97,13 +125,7 @@ def main():
 
     preds = []
     if is_cls:
-        yes, no = single_token(tokenizer, "Yes"), single_token(tokenizer, "No")
-        for i in tqdm(range(0, len(test), args.batch_size), desc=args.dataset):
-            chunk = test[i:i + args.batch_size]
-            out, _ = generate(model, tokenizer, [prompt_ids(tokenizer, template, r) for r in chunk], 1)
-            logits = out.logits[0].float()                       # (batch, vocab) at the first answer token
-            p_yes = torch.softmax(logits[:, [yes, no]], dim=-1)[:, 0].tolist()
-            preds.extend(p_yes)
+        preds = p_yes(model, tokenizer, template, test, args.batch_size, desc=args.dataset)
     else:
         train_mean = defaultdict(list)
         for r in train:
@@ -123,24 +145,13 @@ def main():
                 raw.append(text)
                 preds.append(val)
 
-    # Metrics, per task then averaged.
-    by_task = defaultdict(lambda: ([], []))
-    for r, p in zip(test, preds):
-        by_task[r["task"]][0].append(r["label"])
-        by_task[r["task"]][1].append(p)
-
     metrics = {"dataset": args.dataset, "model": "base" if args.base_only else adapter, "n": len(test)}
     if is_cls:
-        aucs, skipped = {}, []
-        for t, (y, p) in by_task.items():
-            if len(set(y)) < 2:
-                skipped.append(t)        # AUC undefined when the test split has one class
-                continue
-            aucs[t] = roc_auc_score(y, p)
+        score, aucs, skipped = mean_roc_auc(test, preds)
         y_all = np.array([r["label"] for r in test])
         metrics.update(
             metric="roc_auc",
-            score=float(np.mean(list(aucs.values()))),
+            score=score,
             accuracy=float(np.mean((np.array(preds) >= 0.5) == (y_all >= 0.5))),
             per_task=aucs,
             skipped_single_class=skipped,
