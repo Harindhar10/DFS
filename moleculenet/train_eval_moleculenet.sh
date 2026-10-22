@@ -9,20 +9,21 @@ wandb login        # or export WANDB_API_KEY=... beforehand
 
 set -euo pipefail
 
-ALL="bbbp bace_classification clintox sider tox21 hiv delaney freesolv lipo bace_regression clearance"
+ALL="bbbp"
+#"bbbp bace_classification clintox sider tox21 hiv delaney freesolv lipo bace_regression clearance"
 DATASETS=${DATASETS:-$ALL}
 
 python moleculenet/prepare_moleculenet.py --datasets "$(echo $DATASETS | tr ' ' ',')"
 
-export WANDB_PROJECT=dfs-molnet-qlora
+export WANDB_PROJECT=molnet-qlora
 export WANDB_LOG_MODEL=false       # don't upload 27B checkpoints
 
 SAVE_ROOT=saves/qwen3.8-27b/qlora/molnet
 
 for d in $DATASETS; do
     case $d in
-        hiv|tox21|sider) EPOCHS=2 ;;   # >=30k examples each
-        *)               EPOCHS=5 ;;
+        hiv|tox21|sider) EPOCHS=1 ;;   # >=30k examples each
+        *)               EPOCHS=1 ;;
     esac
     echo "== $d ($EPOCHS epochs) =="
     llamafactory-cli train moleculenet/qwen_qlora_moleculenet.yaml \
