@@ -11,6 +11,9 @@ to the train-split mean for that task and are counted.
 
 The model, quantization, template and adapter are loaded through LLaMA-Factory itself, so the
 prompt tokens are exactly what the adapter was trained on.
+
+Test metrics are also logged into the adapter's wandb training run (test/* or, with --base_only,
+test_base/*), using the run id that moleculenet/train.py saves to <adapter dir>/wandb_run_id.
 """
 import argparse, csv, json, math, os, re
 from collections import defaultdict
@@ -112,6 +115,7 @@ def main():
     ap.add_argument("--base_only", action="store_true", help="score the untuned model (zero-shot)")
     ap.add_argument("--batch_size", type=int, default=32)
     ap.add_argument("--results_csv", default=f"{SAVE_ROOT}/results.csv")
+    ap.add_argument("--no_wandb", action="store_true", help="don't log test metrics to the training run")
     args = ap.parse_args()
 
     test = json.load(open(os.path.join(args.data_dir, f"{args.dataset}_test.json")))
@@ -187,6 +191,34 @@ def main():
         w.writerow([args.dataset, tag, metrics["metric"], f"{metrics['score']:.4f}", len(test)])
 
     print(json.dumps({k: v for k, v in metrics.items() if k != "per_task"}, indent=2))
+
+    if not args.no_wandb:
+        log_to_training_run(args.adapter or f"{SAVE_ROOT}/{args.dataset}", metrics,
+                            prefix="test_base" if args.base_only else "test")
+
+
+def log_to_training_run(run_dir, metrics, prefix):
+    """Log test metrics into the wandb run that trained this adapter (id saved by moleculenet/train.py)."""
+    id_path = os.path.join(run_dir, "wandb_run_id")
+    if not os.path.exists(id_path):
+        print(f"wandb: no training run id at {id_path}, test metrics not logged")
+        return
+    import wandb
+
+    stats = {f"{prefix}/{metrics['metric']}": metrics["score"]}
+    if metrics["metric"] == "roc_auc":
+        stats[f"{prefix}/accuracy"] = metrics["accuracy"]
+        stats.update({f"{prefix}/roc_auc/{t}": a for t, a in metrics["per_task"].items()})
+    else:
+        stats[f"{prefix}/mae"] = metrics["mae"]
+        stats[f"{prefix}/parse_fail_pct"] = metrics["parse_fail_pct"]
+
+    run = wandb.init(project=os.environ.get("WANDB_PROJECT", "dfs-molnet-qlora"),
+                     id=open(id_path).read().strip(), resume="must")
+    run.log(stats)
+    run.summary.update(stats)
+    run.finish()
+    print(f"wandb: logged {prefix}/* to run {run.id}")
 
 
 if __name__ == "__main__":
