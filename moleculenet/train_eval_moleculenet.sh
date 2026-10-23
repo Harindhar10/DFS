@@ -9,8 +9,16 @@ wandb login        # or export WANDB_API_KEY=... beforehand
 
 set -euo pipefail
 
-ALL="bbbp"
-#"bbbp bace_classification clintox sider tox21 hiv delaney freesolv lipo bace_regression clearance"
+ALL="delaney freesolv lipo bace_regression clearance"
+
+#All
+#"bbbp bace_classification clintox sider tox21 hiv delaney freesolv lip bace_regression clearance"
+
+#small
+#"bbbp bace_classification clintox delaney freesolv lipo bace_regression clearance"
+#large
+# sider hiv tox21
+
 DATASETS=${DATASETS:-$ALL}
 
 python moleculenet/prepare_moleculenet.py --datasets "$(echo $DATASETS | tr ' ' ',')"
@@ -22,8 +30,8 @@ SAVE_ROOT=saves/qwen3.8-27b/qlora/molnet
 
 for d in $DATASETS; do
     case $d in
-        hiv|tox21|sider) EPOCHS=1 ;;   # >=30k examples each
-        *)               EPOCHS=1 ;;
+        hiv|tox21) EPOCHS=1 ;;   # >=30k examples each
+        *)               EPOCHS=2 ;;
     esac
     echo "== $d ($EPOCHS epochs) =="
     # train.py = llamafactory-cli train + val ROC-AUC (cls) and trainable-param logging

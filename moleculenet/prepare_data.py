@@ -126,7 +126,7 @@ def main():
         '--datasets',
         type=str,
         help='comma-separated list of datasets to featurize',
-        default='bbbp,bace_classification')
+        default='bace_classification,clintox,sider,hiv,tox21,lipo,freesolv,delaney,bace_regression,clearance,bbbp,bace_classification')
     argparser.add_argument('--data_dir',
                            type=str,
                            help='data dir of stored splits in csv format',

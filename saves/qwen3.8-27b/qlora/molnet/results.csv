@@ -1,0 +1,9 @@
+dataset,model,metric,score,n
+bbbp,adapter,roc_auc,0.7221,189
+bace_classification,adapter,roc_auc,0.7784,152
+clintox,adapter,roc_auc,0.9872,286
+delaney,adapter,rmse,0.9789,113
+freesolv,adapter,rmse,0.7961,65
+lipo,adapter,rmse,0.8751,420
+bace_regression,adapter,rmse,1.2781,152
+clearance,adapter,rmse,106.1305,84
