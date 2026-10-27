@@ -24,10 +24,11 @@ def load_results(run_dir):
     return df.drop_duplicates(subset=['model', 'custom_id'], keep='last').reset_index(drop=True)
 
 
-def evaluate_run(run_dir, split):
-    """Score every (model, dataset, k) group of a run, print a summary and return the metrics DataFrame.
+def evaluate_run(run_dir, split, default_seed=None):
+    """Score every (model, dataset, k, seed) group of a run, print a summary and return the metrics DataFrame.
 
     Each row holds the metric value, request count, parse-failure and fill rates, token totals and cost.
+    Records without a seed (run_eval.py, which runs one seed per run) get default_seed.
     Returns an empty DataFrame if the run has no results yet.
     """
     import deepchem as dc
@@ -36,9 +37,13 @@ def evaluate_run(run_dir, split):
     if results.empty:
         print('No results yet.')
         return pd.DataFrame()
+    if 'seed' not in results:
+        results['seed'] = default_seed
+    elif default_seed is not None:
+        results['seed'] = results['seed'].fillna(default_seed)
 
     rows = []
-    for (model, dataset, k), g in results.groupby(['model', 'dataset', 'k']):
+    for (model, dataset, k, seed), g in results.groupby(['model', 'dataset', 'k', 'seed'], dropna=False):
         cols = list(DATASETS[dataset]['tasks'])
         is_cls = DATASETS[dataset]['type'] == 'classification'
         prior = load_split(dataset, 'train')[cols].mean().to_numpy(dtype=float)
@@ -59,7 +64,8 @@ def evaluate_run(run_dir, split):
 
         cost = g['cost_usd'].dropna()
         rows.append({
-            'model': model, 'dataset': dataset, 'k': int(k), 'metric': 'roc_auc' if is_cls else 'rmse',
+            'model': model, 'dataset': dataset, 'k': int(k), 'seed': None if pd.isna(seed) else int(seed),
+            'metric': 'roc_auc' if is_cls else 'rmse',
             'value': float(np.mean(scores)) if scores else float('nan'),
             'n': len(g), 'tasks_scored': len(scores),
             'parse_fail_rate': float((g['status'] != 'ok').mean()),
@@ -69,14 +75,20 @@ def evaluate_run(run_dir, split):
             'output_tokens': int(g['output_tokens'].sum()),
             'cost_usd': round(float(cost.sum()), 6) if len(cost) else None,
         })
-    metrics = pd.DataFrame(rows).sort_values(['dataset', 'model', 'k']).reset_index(drop=True)
+    metrics = pd.DataFrame(rows).sort_values(['dataset', 'model', 'k', 'seed']).reset_index(drop=True)
 
     pd.set_option('display.width', 200)
+    multi_seed = metrics['seed'].nunique() > 1
     for metric, direction in [('roc_auc', 'higher is better'), ('rmse', 'lower is better')]:
         m = metrics[metrics['metric'] == metric]
         if len(m):
             print(f'\n=== {metric.upper()} ({direction}) ===')
-            print(m.pivot_table(index='dataset', columns=['model', 'k'], values='value').round(3).to_string())
+            columns = ['model', 'k', 'seed'] if multi_seed else ['model', 'k']
+            print(m.pivot_table(index='dataset', columns=columns, values='value').round(3).to_string())
+            if multi_seed:
+                print(f'\n--- {metric.upper()} mean / std across seeds ---')
+                print(m.pivot_table(index='dataset', columns=['model', 'k'], values='value',
+                                    aggfunc=['mean', 'std']).round(3).to_string())
     print('\n=== Cost (USD) and parse failures ===')
     summary = metrics.groupby(['model', 'k']).agg(
         cost_usd=('cost_usd', 'sum'), requests=('n', 'sum'),
