@@ -1,0 +1,250 @@
+<title>Chemberta4 Repository Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Newsreader:opsz,wght@6..72,500&display=swap">
+<style>
+/* Layout: one reading column; header, flow diagram, then a collapsible file tree with a group legend */
+:root {
+  --bg: #f6f7f8;
+  --surface: #ffffff;
+  --fg: #1b2126;
+  --muted: #5d6870;
+  --line: #dde2e6;
+  --train: #0f7a6c;
+  --eval: #4a4fc4;
+  --task: #a8620a;
+  --config: #6a5a7d;
+  --infra: #5d6870;
+  --font-display: "Newsreader", Georgia, serif;
+  --font-body: "Instrument Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161a; --surface: #1a2025; --fg: #e4e8eb; --muted: #95a1a9; --line: #2c343b;
+    --train: #4cc3b0; --eval: #9a9ef5; --task: #e3a24a; --config: #b9a6d0; --infra: #95a1a9;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161a; --surface: #1a2025; --fg: #e4e8eb; --muted: #95a1a9; --line: #2c343b;
+  --train: #4cc3b0; --eval: #9a9ef5; --task: #e3a24a; --config: #b9a6d0; --infra: #95a1a9;
+  color-scheme: dark;
+}
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.55;
+}
+.wrap {
+  max-width: 980px; margin: 0 auto;
+  padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 36px;
+}
+header { display: grid; gap: 10px; }
+.eyebrow { font: 600 12px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 500 clamp(32px, 6vw, 46px)/1.1 var(--font-display); margin: 0; text-wrap: balance; }
+h2 { font: 600 13px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+.lede { max-width: 65ch; margin: 0; color: var(--muted); }
+.smiles { font-family: var(--font-mono); font-size: 13px; color: var(--muted); overflow-wrap: anywhere; }
+.smiles b { color: var(--task); font-weight: 600; }
+
+.axes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 640px) { .axes { grid-template-columns: 1fr; } }
+.axis { border-top: 2px solid var(--c); padding-top: 10px; display: grid; gap: 4px; }
+.axis strong { font-weight: 600; }
+.axis span { color: var(--muted); font-size: 14px; }
+.axis code { font-family: var(--font-mono); font-size: 12.5px; color: var(--c); }
+
+.diagram { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; overflow-x: auto; }
+.diagram pre { margin: 0; }
+
+.tree-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.tree-head h2 { margin: 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 2px; background: var(--c); margin-right: 6px; vertical-align: 0; }
+.controls { display: flex; gap: 8px; }
+button {
+  font: 500 13px var(--font-body); color: var(--fg); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; cursor: pointer;
+}
+button:hover { border-color: var(--muted); }
+button:focus-visible, summary:focus-visible { outline: 2px solid var(--eval); outline-offset: 2px; }
+
+.tree {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  padding: 14px 16px; overflow-x: auto;
+  font-family: var(--font-mono); font-size: 13.5px; line-height: 1.75;
+}
+.tree ul { list-style: none; margin: 0; padding-left: 18px; border-left: 1px solid var(--line); margin-left: 6px; }
+.tree > ul { padding-left: 0; border-left: 0; margin-left: 0; }
+.tree li { white-space: nowrap; }
+.tree summary { cursor: pointer; list-style: none; }
+.tree summary::-webkit-details-marker { display: none; }
+.tree summary::before { content: "▸"; display: inline-block; width: 14px; color: var(--muted); transition: transform .15s; }
+.tree details[open] > summary::before { transform: rotate(90deg); }
+.tree .file { padding-left: 14px; }
+.name { color: var(--c, var(--fg)); }
+.dir > summary .name { font-weight: 600; }
+.note { font-family: var(--font-body); font-size: 13px; color: var(--muted); margin-left: 12px; }
+.from { font-family: var(--font-body); font-size: 12px; color: var(--task); margin-left: 8px; }
+.from::before { content: "← "; }
+
+.notes { display: grid; gap: 14px; max-width: 70ch; }
+.notes p { margin: 0; }
+.notes strong { font-weight: 600; }
+.tree code, .notes code { font-family: var(--font-mono); font-size: 13px; }
+
+@media (prefers-reduced-motion: reduce) { .tree summary::before { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Repository plan</div>
+    <h1>Chemberta4</h1>
+    <p class="lede">A post-training and evaluation framework for chemistry LLMs. Train with full fine-tuning, LoRA or QLoRA on three tasks, then evaluate fine-tuned checkpoints alongside Claude and GPT using the same prompts and metrics.</p>
+    <div class="smiles">retrosynthesis: <b>CC(=O)Oc1ccccc1C(=O)O</b> → CC(=O)OC(C)=O . Oc1ccccc1C(=O)O</div>
+  </header>
+
+  <section>
+    <h2>Three independent axes</h2>
+    <div class="axes">
+      <div class="axis" style="--c: var(--task)"><strong>Task</strong><span>Data, prompts and metrics. Shared by training and evaluation.</span><code>tasks/&lt;task&gt;/</code></div>
+      <div class="axis" style="--c: var(--train)"><strong>Method</strong><span>Full fine-tuning, LoRA or QLoRA, plus task-specific strategy.</span><code>training/methods/</code></div>
+      <div class="axis" style="--c: var(--eval)"><strong>Backend</strong><span>Closed-source APIs or local vLLM, behind one interface.</span><code>evaluation/backends/</code></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How the pieces connect</h2>
+    <div class="diagram">
+<pre class="mermaid">
+flowchart LR
+    R[Chemberta4] --> T[Training]
+    R --> E[Evaluation]
+    T --> M1[Full Fine-Tuning]
+    T --> M2[LoRA]
+    T --> M3[QLoRA]
+    M1 & M2 & M3 --> TK{Tasks}
+    TK --> K1[MoleculeNet]
+    TK --> K2[Retrosynthesis]
+    TK --> K3[Conditional Generation]
+    E --> C[Closed-Source]
+    E --> O[Open-Source]
+    C --> C1[Claude]
+    C --> C2[GPT]
+    O --> V[vLLM] --> V1[Local / fine-tuned checkpoints]
+    C1 & C2 & V1 --> TK
+</pre>
+    </div>
+  </section>
+
+  <section>
+    <div class="tree-head">
+      <h2>File tree</h2>
+      <div class="legend">
+        <span style="--c: var(--config)">Configs</span>
+        <span style="--c: var(--task)">Tasks</span>
+        <span style="--c: var(--train)">Training</span>
+        <span style="--c: var(--eval)">Evaluation</span>
+        <span style="--c: var(--infra)">Infra</span>
+      </div>
+      <div class="controls">
+        <button type="button" id="expand">Expand all</button>
+        <button type="button" id="collapse">Collapse all</button>
+      </div>
+    </div>
+    <div class="tree" id="tree"></div>
+  </section>
+
+  <section class="notes">
+    <h2>Design notes</h2>
+    <p><strong>Configs carry the variation.</strong> One <code>train.py</code> and one <code>evaluate.py</code>. The config picks the task and method, so there are no nine near-duplicate scripts to keep in sync.</p>
+    <p><strong>Tasks are shared.</strong> The same prompt format and metrics are used to fine-tune a model and to score Claude, GPT or a vLLM model, so comparisons are fair.</p>
+    <p><strong>One backend interface.</strong> Every model implements <code>generate(prompts) -&gt; list[str]</code>. Checkpoints in <code>outputs/checkpoints/</code> load straight into the vLLM backend, closing the train-to-eval loop.</p>
+  </section>
+</div>
+
+<script>
+// [name, note, group, children?, from?]  group: config | task | train | eval | infra
+const T = ["chemberta4/", "", "infra", [
+  ["README.md", "", "infra"],
+  ["pyproject.toml", "", "infra"],
+  ["configs/", "all YAML; one run = task × method × model", "config", [
+    ["training/", "", "config", ["moleculenet", "retrosynthesis", "conditional_generation"].map(t =>
+      [t + "/", "", "config", [["full.yaml", "", "config"], ["lora.yaml", "", "config"], ["qlora.yaml", "", "config"]]])],
+    ["evaluation/", "", "config", [
+      ["closed_source/", "claude.yaml, gpt.yaml", "config", []],
+      ["open_source/", "vllm_qwen.yaml, vllm_llama.yaml, …", "config", []]]]]],
+  ["src/chemberta4/", "", "infra", [
+    ["tasks/", "per task: data + prompts + metrics", "task", [
+      ["base.py", "Task interface: load(), format_prompt(), score()", "task"],
+      ["moleculenet/", "", "task", [
+        ["data.py", "", "task", null, "prepare_moleculenet.py, prepare_data.py"],
+        ["prompts.py", "", "task"],
+        ["metrics.py", "ROC-AUC, RMSE", "task", null, "score_moleculenet.py"]]],
+      ["retrosynthesis/", "", "task", [
+        ["data.py", "USPTO-50k", "task", null, "prepare_uspto50k.py"],
+        ["prompts.py", "", "task"],
+        ["metrics.py", "top-k exact match, validity", "task", null, "score_predictions.py"]]],
+      ["conditional_generation/", "", "task", [
+        ["data.py", "", "task"],
+        ["prompts.py", "", "task"],
+        ["metrics.py", "validity, uniqueness, novelty, property match", "task"]]]]],
+    ["training/", "", "train", [
+      ["trainer.py", "shared entrypoint", "train", null, "moleculenet/train.py"],
+      ["methods/", "", "train", [
+        ["full.py", "", "train"],
+        ["lora.py", "", "train"],
+        ["qlora.py", "bitsandbytes 4-bit + LoRA", "train"]]],
+      ["strategies/", "task-specific training logic", "train", [
+        ["moleculenet.py", "classification/regression heads, class balancing", "train"],
+        ["retrosynthesis.py", "SMILES augmentation", "train"],
+        ["conditional_generation.py", "", "train"]]]]],
+    ["evaluation/", "", "eval", [
+      ["runner.py", "task × backend → predictions → metrics", "eval"],
+      ["backends/", "", "eval", [
+        ["base.py", "ModelBackend.generate(prompts) -> list[str]", "eval"],
+        ["closed_source/", "", "eval", [
+          ["anthropic.py", "Claude", "eval"],
+          ["openai.py", "GPT", "eval"]]],
+        ["open_source/", "", "eval", [
+          ["vllm_backend.py", "vLLM offline / server", "eval"],
+          ["hf_backend.py", "HF fallback (optional)", "eval"]]]]],
+      ["reporting.py", "results tables, JSON/CSV", "eval"]]],
+    ["utils/", "", "infra", [
+      ["chem.py", "RDKit: canonicalize, validate SMILES", "infra"],
+      ["logging.py", "W&B, val loss + ROC-AUC logging", "infra"]]]]],
+  ["scripts/", "thin CLI wrappers", "infra", [
+    ["prepare_data.py", "--task moleculenet|retrosynthesis|conditional_generation", "infra"],
+    ["train.py", "--config configs/training/<task>/<method>.yaml", "infra"],
+    ["evaluate.py", "--task … --backend claude|gpt|vllm", "infra"],
+    ["setup/", "", "infra", [], "finetune/setup.sh, setup_fast.sh"]]],
+  ["notebooks/", "", "infra", [], "code_2.ipynb, code_v1.ipynb"],
+  ["data/", "gitignored: raw/, processed/", "infra", []],
+  ["outputs/", "gitignored: checkpoints/, predictions/, results/", "infra", []],
+  ["tests/", "", "infra", [
+    ["test_tasks.py", "", "infra"],
+    ["test_metrics.py", "", "infra"],
+    ["test_backends.py", "", "infra"]]]]];
+
+const color = g => `var(--${g})`;
+function label([name, note, group, , from]) {
+  let h = `<span class="name" style="--c:${color(group)}">${esc(name)}</span>`;
+  if (note) h += `<span class="note">${esc(note)}</span>`;
+  if (from) h += `<span class="from">${esc(from)}</span>`;
+  return h;
+}
+function esc(s) { return s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c])); }
+function node(n) {
+  const kids = n[3];
+  if (kids && kids.length) {
+    return `<li class="dir"><details open><summary>${label(n)}</summary><ul>${kids.map(node).join("")}</ul></details></li>`;
+  }
+  return `<li class="file">${label(n)}</li>`;
+}
+document.getElementById("tree").innerHTML = `<ul>${node(T)}</ul>`;
+const all = () => document.querySelectorAll("#tree details");
+document.getElementById("expand").onclick = () => all().forEach(d => d.open = true);
+document.getElementById("collapse").onclick = () => all().forEach((d, i) => d.open = i === 0);
+</script>
